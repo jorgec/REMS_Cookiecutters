@@ -1,0 +1,17 @@
+._ug_name, ._ug_option {
+	padding-left: 3% !important;
+	font-weight: 500 !important;
+	/*vertical-align: baseline !important;*/
+}
+._ul {
+	list-style: none !important;
+}
+#_upload_guide_modal td {
+	/*color: red !important;*/
+	vertical-align: baseline !important;
+}
+
+.dt-buttons.btn-group {
+	display: block;
+	text-align: right;
+}

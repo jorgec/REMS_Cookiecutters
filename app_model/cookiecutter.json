@@ -1,0 +1,170 @@
+{
+    "project_name": "REMS Project",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('.', '_').strip() }}",
+    "author_name": "Jorge Cosgayon",
+    "author_slug": "{{ cookiecutter.author_name.split(' ')[0].lower() }}.{{ cookiecutter.author_name.split(' ')[-1].lower() }}",
+    "email": "{{ cookiecutter.author_slug }}@pueblodepanay.com",
+    "module_name": "My Module",
+    "module_function": "{{ cookiecutter.module_name.title().replace(' ', '').replace('.', '').replace('_', '') }}",
+    "controller": "{{ cookiecutter.module_name.capitalize().replace(' ', '_').replace('.', '_') }}",
+    "module_slug": "{{ cookiecutter.module_name.lower().replace(' ', '_').replace('.', '_').strip() }}",
+    "module": "{{ cookiecutter.module_slug }}",
+    "module_plural": "{{ cookiecutter.module_name.lower().replace(' ', '_').replace('.', '_').strip() }}s",
+    "model": "{{ cookiecutter.module_name.capitalize().replace(' ', '_').replace('.', '_') }}",
+    "model_name": "{{ cookiecutter.model }}_model",
+    "model_variable": "M_{{ cookiecutter.module_name.capitalize().replace(' ', '_').replace('.', '_') }}",
+    "show_function_plural": "show{{ cookiecutter.module_name.title().replace(' ', '').replace('.', '').replace('_', '') }}s",
+    "fields": {
+        "id": {
+            "db": {
+                "type": "INT",
+                "constraint": "11",
+                "unsigned": "True",
+                "auto_increment": "True",
+                "NOT NULL": "True"
+            },
+            "meta": {
+                "form_fillable": "False",
+                "label": null,
+                "rules": null,
+                "is_one": "False",
+                "is_many": "False",
+                "module": null,
+                "model": null,
+                "table": null,
+                "key": null,
+                "fk": null
+            }
+        },
+        "created_by": {
+            "db": {
+                "type": "INT",
+                "NOT NULL": "False",
+                "unsigned": "True"
+            },
+            "meta": {
+                "form_fillable": "False",
+                "label": null,
+                "rules": null,
+                "is_one": "False",
+                "is_many": "False",
+                "module": null,
+                "model": null,
+                "table": null,
+                "key": null,
+                "fk": null
+            }
+        },
+        "created_at": {
+            "db": {
+                "type": "DATETIME",
+                "NOT NULL": "False"
+            },
+            "meta": {
+                "form_fillable": "False",
+                "label": null,
+                "rules": null,
+                "is_one": "False",
+                "is_many": "False",
+                "module": null,
+                "model": null,
+                "table": null,
+                "key": null,
+                "fk": null
+            }
+        },
+        "updated_by": {
+            "db": {
+                "type": "INT",
+                "NOT NULL": "False",
+                "unsigned": "True"
+            },
+            "meta": {
+                "form_fillable": "False",
+                "label": null,
+                "rules": null,
+                "is_one": "False",
+                "is_many": "False",
+                "module": null,
+                "model": null,
+                "table": null,
+                "key": null,
+                "fk": null
+            }
+        },
+        "updated_at": {
+            "db": {
+                "type": "DATETIME",
+                "NOT NULL": "False"
+            },
+            "meta": {
+                "form_fillable": "False",
+                "label": null,
+                "rules": null,
+                "is_one": "False",
+                "is_many": "False",
+                "module": null,
+                "model": null,
+                "table": null,
+                "key": null,
+                "fk": null
+            }
+        },
+        "deleted_by": {
+            "db": {
+                "type": "INT",
+                "NOT NULL": "False",
+                "unsigned": "True"
+            },
+            "meta": {
+                "form_fillable": "False",
+                "label": null,
+                "rules": null,
+                "is_one": "False",
+                "is_many": "False",
+                "module": null,
+                "model": null,
+                "table": null,
+                "key": null,
+                "fk": null
+            }
+        },
+        "deleted_at": {
+            "db": {
+                "type": "DATETIME",
+                "NOT NULL": "False"
+            },
+            "meta": {
+                "form_fillable": "False",
+                "label": null,
+                "rules": null,
+                "is_one": "False",
+                "is_many": "False",
+                "module": null,
+                "model": null,
+                "table": null,
+                "key": null,
+                "fk": null
+            }
+        },
+        "item": {
+            "db": {
+                "type": "ID",
+                "constraint": 11,
+                "NOT NULL": "False"
+            },
+            "meta": {
+                "form_fillable": "True",
+                "label": "Item",
+                "rules": "required",
+                "is_one": "True",
+                "is_many": "False",
+                "module": "item",
+                "model": "item_model",
+                "table": "items",
+                "key": "item_id",
+                "fk": null
+            }
+        }
+    }
+}

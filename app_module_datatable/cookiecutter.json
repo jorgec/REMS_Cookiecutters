@@ -1,0 +1,15 @@
+{
+  "project_name": "REMS Project",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('.', '_').strip() }}",
+  "author_name": "Mark Gersaniva",
+  "author_slug": "{{ cookiecutter.author_name.split(' ')[0].lower() }}.{{ cookiecutter.author_name.split(' ')[-1].lower() }}",
+  "email": "{{ cookiecutter.author_slug }}@pueblodepanay.com",
+  "module_name": "My Module",
+  "module_function": "{{ cookiecutter.module_name.title().replace(' ', '').replace('.', '').replace('_', '') }}",
+  "controller": "{{ cookiecutter.module_name.capitalize().replace(' ', '_').replace('.', '_') }}",
+  "module_slug": "{{ cookiecutter.module_name.lower().replace(' ', '_').replace('.', '_').strip() }}",
+  "module_plural": "{{ cookiecutter.module_name.lower().replace(' ', '_').replace('.', '_').strip() }}s",
+  "model_name": "{{ cookiecutter.module_name.capitalize().replace(' ', '_').replace('.', '_') }}_model",
+  "model_variable": "M_{{ cookiecutter.module_name.capitalize().replace(' ', '_').replace('.', '_') }}",
+  "show_function_plural": "show{{ cookiecutter.module_name.title().replace(' ', '').replace('.', '').replace('_', '') }}s"
+}
