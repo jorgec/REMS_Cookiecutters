@@ -141,26 +141,6 @@
                 "key": null,
                 "fk": null
             }
-        },
-        "warehouse_id": {
-            "db": {
-                "type": "INT",
-                "constraint": 11,
-                "NOT NULL": "True"
-            },
-            "meta": {
-                "form_fillable": "True",
-                "label": "Warehouse",
-                "rules": "numeric",
-                "is_one": "True",
-                "is_many": "False",
-                "module": "warehouse",
-                "model": "warehouse_model",
-                "table": "warehouses",
-                "key": "id",
-                "fk": "warehouse_id",
-                "form_elem": "suggests"
-            }
         }
 
     }

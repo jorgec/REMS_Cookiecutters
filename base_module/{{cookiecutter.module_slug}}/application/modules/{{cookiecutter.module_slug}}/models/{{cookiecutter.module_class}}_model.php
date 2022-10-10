@@ -1,13 +1,20 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class {{ cookiecutter.model_name }} extends MY_Model {
-    public $table = '{{ cookiecutter.module_plural }}'; // you MUST mention the table name
-    public $primary_key = 'id';
+class {{cookiecutter.module_class}}_model extends MY_Model
+{
+    public $table = '{{cookiecutter.model_db}}'; // you MUST mention the table name
+    public $primary_key = 'id'; // you MUST mention the primary key
     public $fillable = [
+        'created_by',
+        'created_at',
+        'updated_by',
+        'updated_at',
+
         {% for field, details in cookiecutter.fields.items() %}"{{ field }}",
         {% endfor %}
-        ];
+    ]; // If you want, you can set an array with the fields that can be filled by insert/update
+
     public $protected = [
         'id',
         {% for field, details in cookiecutter.fields.items() %}{% if details.meta.form_fillable != "True" %}"{{ field }}",{% endif %}
@@ -29,21 +36,24 @@ class {{ cookiecutter.model_name }} extends MY_Model {
     {
         parent::__construct();
 
-        $this->soft_deletes = true;
+        $this->soft_deletes = TRUE;
         $this->return_as = 'array';
 
-        $this->rules['insert'] = $this->fields;
-        $this->rules['update'] = $this->fields;
+        // Pagination
+        $this->pagination_delimiters = array('<li class="kt-pagination__link--next">', '</li>');
+        $this->pagination_arrows = array('<i class="fa fa-angle-left kt-font-brand"></i>', '<i class="fa fa-angle-right kt-font-brand"></i>');
+
+        $this->rules['insert']	=	$this->fields;
+        $this->rules['update']	=	$this->fields;
 
         {% for field, details in cookiecutter.fields.items() %}
             {% if details.meta.is_one == "True" %}
-                $this->has_one["{{ details.meta.module }}"] = array('foreign_model'=>'{{ details.meta.module }}/{{ details.meta.model }}','foreign_table'=>'{{ details.meta.table }}','foreign_key'=>'{{ details.meta.key }}','local_key'=>'{{ details.meta.fk }}');                
+                $this->has_one["{{ details.meta.module }}"] = array('foreign_model'=>'{{ details.meta.module }}/{{ details.meta.model }}','foreign_table'=>'{{ details.meta.table }}','foreign_key'=>'{{ details.meta.key }}','local_key'=>'{{ details.meta.fk }}');
             {% endif %}
             {% if details.meta.is_many == "True" %}
                 $this->has_many['{{ details.meta.module }}s'] = array('foreign_model'=>'{{ details.meta.module }}/{{ details.meta.model }}','foreign_table'=>'{{ details.meta.table }}','foreign_key'=>'{{ details.meta.fk }}','local_key'=>'{{ details.meta.key }}');
             {% endif %}
         {% endfor %}
-        
     }
 
     function get_columns() {
@@ -55,22 +65,4 @@ class {{ cookiecutter.model_name }} extends MY_Model {
 
         return $_return;
     }
-
-    public function insert_dummy()
-    {
-        require APPPATH.'/third_party/faker/autoload.php';
-        $faker = Faker\Factory::create();
-
-        $data = [];
-
-        for($x = 0; $x < 10; $x++)
-        {
-            array_push($data,array(
-                'name'=> $faker->word,
-            ));
-        }
-        $this->db->insert_batch($this->table, $data);
-
-    }
-
 }
