@@ -1,5 +1,6 @@
 <div class="row">
 {% for field, details in cookiecutter.fields.items() %}{% if details.meta.form_fillable == "True" %}
+    <!-- start {{ field }} -->
     <div class="col-sm-12 col-md-6">
         <div class="form-group my-3">
             <label>{{ details.meta.label }} <span class="kt-font-danger">*</span></label>
@@ -13,7 +14,6 @@
                                     selected><?php echo ${{field}}['name']; ?></option>
                         <?php endif ?>
                     </select>
-                    <span class="kt-input-icon__icon kt-input-icon__icon--left"><span><i class="la la-user"></i></span>
                 {% endif %}
                 {% if details.meta.form_elem == "numeric" %}
                     <input type="number" min="0" step="0.01" class="form-control" id="{{ field }}" name="{{ field }}" placeholder="{{ details.meta.label }}">
@@ -44,5 +44,6 @@
         </div>
     </div>
     {% endif %}
+    <!-- /end {{ field }} -->
 {% endfor %}
 </div>

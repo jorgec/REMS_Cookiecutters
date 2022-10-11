@@ -38,7 +38,7 @@
             <!--begin::Portlet-->
             <div class="kt-portlet">
                 <div class="kt-portlet__body">
-                    <?php $this->load->view('components/create/_create_main'); ?>
+                    <?php $this->load->view('components/create/main'); ?>
                 </div>
             </div>
             <!--end::Portlet-->

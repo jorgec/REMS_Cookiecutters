@@ -1,6 +1,6 @@
 {
   "module_name": "My Module",
-  "module_class": "{{ cookiecutter.module_name.title().replace(' ', '').replace('.', '').replace('_', '') }}",
+  "module_class": "{{ cookiecutter.module_name.title().replace(' ', '_') }}",
   "module_display_plural": "{{ cookiecutter.module_name }}s",
   "module_display_singular": "{{ cookiecutter.module_name }}",
   "module_slug":  "{{ cookiecutter.module_name.lower().replace(' ', '_').replace('.', '_').strip() }}",
@@ -21,7 +21,8 @@
                 "NOT NULL": "True"
             },
             "meta": {
-                "form_fillable": "True",
+                                "form_updateable":"True","form_fillable": "True",
+
                 "label": "Transaction",
                 "rules": "required|numeric",
                 "is_one": "True",
@@ -44,6 +45,7 @@
             },
             "meta": {
                 "form_fillable": "True",
+                "form_updateable": "True",
                 "label": "Transaction Cancellation Recommendation",
                 "rules": "numeric",
                 "is_one": "True",
@@ -64,6 +66,7 @@
             },
             "meta": {
                 "form_fillable": "True",
+                "form_updateable": "True",
                 "label": "Cancellation Status",
                 "rules": null,
                 "is_one": "False",
@@ -85,6 +88,7 @@
             },
             "meta": {
                 "form_fillable": "True",
+                "form_updateable": "True",
                 "label": "Has Refunds?",
                 "rules": null,
                 "is_one": "False",
