@@ -22,15 +22,14 @@ class {{cookiecutter.controller}} extends MY_Controller
       * - $this->extra_update_data - gets appended to $additional on update
       */
 
+    private $__errors = array(
+        'create' => null,
+        'update' => null,
+    );
 
     public function __construct()
     {
         parent::__construct();
-
-        private $__errors = array(
-            'create' => null,
-            'update' => null,
-        );
 
         // models
         $this->load->model('{{cookiecutter.module_class}}_model', '_model');

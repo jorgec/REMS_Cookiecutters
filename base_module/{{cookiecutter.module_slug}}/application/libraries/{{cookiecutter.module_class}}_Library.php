@@ -1,7 +1,7 @@
 <?php
 
 
-    class {{ cookiecutter.module_class }}Library
+    class {{ cookiecutter.module_class }}_Library
     {
         private $data = null;
         private $_model = null;

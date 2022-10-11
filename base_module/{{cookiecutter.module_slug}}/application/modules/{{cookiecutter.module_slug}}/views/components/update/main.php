@@ -9,14 +9,18 @@
                 {% if details.meta.form_elem == "suggests" %}
                     <select class="form-control suggests" data-module="{{ details.meta.table }}" id="{{ field }}"
                             name="{{ details.meta.key }}">
+                        <?php if ($obj['{{field}}']): ?>
+                            <option value="<?php echo $obj['{{field}}']; ?>"
+                                    selected><?php echo $obj['{{field}}']; ?></option>
+                        <?php endif ?>
                     </select>
                 {% endif %}
                 {% if details.meta.form_elem == "numeric" %}
-                    <input type="number" min="0" step="0.01" class="form-control" id="{{ field }}" name="{{ field }}" placeholder="{{ details.meta.label }}">
+                    <input type="number" min="0" step="0.01" class="form-control" id="{{ field }}" name="{{ field }}" placeholder="{{ details.meta.label }}" value="<?php echo $obj['{{field}}'];?>">
                     <span class="kt-input-icon__icon kt-input-icon__icon--left"><span><i class="la la-user"></i></span>
                 {% endif %}
                 {% if details.meta.form_elem == "email" %}
-                    <input type="email" class="form-control" id="{{ field }}" name="{{ field }}" placeholder="{{ details.meta.label }}">
+                    <input type="email" class="form-control" id="{{ field }}" name="{{ field }}" placeholder="{{ details.meta.label }}" value="<?php echo $obj['{{field}}'];?>">
                     <span class="kt-input-icon__icon kt-input-icon__icon--left"><span><i class="la la-user"></i></span>
                 {% endif %}
                 {% if details.meta.form_elem == "select" %}
@@ -25,14 +29,14 @@
                             -- replace --
                         </option>
                     </select>
-                    <span class="kt-input-icon__icon kt-input-icon__icon--left"><span><i class="la la-user"></i></span>
+
                 {% endif %}
                 {% if details.meta.form_elem == "static_dropdown" %}
                     <?php echo form_dropdown('{{ field }}', Dropdown::get_static('{{ details.meta.static_dropdown }}'), null, 'class="form-control"'); ?>
-                    <span class="kt-input-icon__icon kt-input-icon__icon--left"><span><i class="la la-user"></i></span>
+
                 {% endif %}
             {% else %}
-                <input type="text" class="form-control" id="{{ field }}" name="{{ field }}" placeholder="{{ details.meta.label }}">
+                <input type="text" class="form-control" id="{{ field }}" name="{{ field }}" placeholder="{{ details.meta.label }}" value="<?php echo $obj['{{field}}'];?>">
                 <span class="kt-input-icon__icon kt-input-icon__icon--left"><span><i class="la la-user"></i></span>
             {% endif %}
             </div>

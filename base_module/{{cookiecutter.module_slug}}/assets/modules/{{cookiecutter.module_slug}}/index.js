@@ -1,6 +1,6 @@
 "use strict";
 var {{ cookiecutter.module_class }} = (function() {
-    var {{ cookiecutter.module_class }}_Table = function() {
+    var {{ cookiecutter.module }}_table = function() {
         var table = $('#{{ cookiecutter.module_slug }}_table');
         var url = base_url + "{{ cookiecutter.module }}/{{ cookiecutter.show_function_plural}}?filter=true&with_relations=yes";
         
@@ -337,7 +337,7 @@ var {{ cookiecutter.module_class }} = (function() {
     return {
         //main function to initiate the module
         init: function() {
-            {{ cookiecutter.module_class }}Table();
+            {{ cookiecutter.module }}_table();
             _add_ons();
             _filter{{ cookiecutter.module_class }}();
             upload_guide();
