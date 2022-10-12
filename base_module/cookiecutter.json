@@ -3,7 +3,7 @@
   "module_class": "{{ cookiecutter.module_name.title().replace(' ', '_') }}",
   "module_display_plural": "{{ cookiecutter.module_name }}s",
   "module_display_singular": "{{ cookiecutter.module_name }}",
-  "module_slug":  "{{ cookiecutter.module_name.lower().replace(' ', '_').replace('.', '_').strip() }}",
+  "module_slug": "{{ cookiecutter.module_name.lower().replace(' ', '_').replace('.', '_').strip() }}",
   "module": "{{ cookiecutter.module_slug }}",
   "module_slug_plural": "{{ cookiecutter.module_slug }}s",
   "module_plural": "{{ cookiecutter.module_slug_plural }}",
@@ -12,115 +12,247 @@
   "model_db": "{{ cookiecutter.module_slug_plural }}",
   "show_function_plural": "show_items",
   "fields": {
+    "id": {
+      "db": {
+        "type": "INT",
+        "constraint": "11",
+        "unsigned": "True",
+        "auto_increment": "True",
+        "NOT NULL": "True"
+      },
+      "meta": {
+        "form_fillable": "False",
+        "label": null,
+        "rules": null,
+        "is_one": "False",
+        "is_many": "False",
+        "module": null,
+        "model": null,
+        "table": null,
+        "key": null,
+        "fk": null
+      }
+    },
+    "created_by": {
+      "db": {
+        "type": "INT",
+        "NOT NULL": "True",
+        "unsigned": "True"
+      },
+      "meta": {
+        "form_fillable": "True",
+        "label": null,
+        "rules": null,
+        "is_one": "False",
+        "is_many": "False",
+        "module": null,
+        "model": null,
+        "table": null,
+        "key": null,
+        "fk": null
+      }
+    },
+    "created_at": {
+      "db": {
+        "type": "DATETIME",
+        "NOT NULL": "True"
+      },
+      "meta": {
+        "form_fillable": "True",
+        "label": null,
+        "rules": null,
+        "is_one": "False",
+        "is_many": "False",
+        "module": null,
+        "model": null,
+        "table": null,
+        "key": null,
+        "fk": null
+      }
+    },
+    "updated_by": {
+      "db": {
+        "type": "INT",
+        "NULL": "True",
+        "unsigned": "True"
+      },
+      "meta": {
+        "form_fillable": "True",
+        "label": null,
+        "rules": null,
+        "is_one": "False",
+        "is_many": "False",
+        "module": null,
+        "model": null,
+        "table": null,
+        "key": null,
+        "fk": null
+      }
+    },
+    "updated_at": {
+      "db": {
+        "type": "DATETIME",
+        "NULL": "True"
+      },
+      "meta": {
+        "form_fillable": "True",
+        "label": null,
+        "rules": null,
+        "is_one": "False",
+        "is_many": "False",
+        "module": null,
+        "model": null,
+        "table": null,
+        "key": null,
+        "fk": null
+      }
+    },
+    "deleted_by": {
+      "db": {
+        "type": "INT",
+        "NULL": "True",
+        "unsigned": "True"
+      },
+      "meta": {
+        "form_fillable": "False",
+        "label": null,
+        "rules": null,
+        "is_one": "False",
+        "is_many": "False",
+        "module": null,
+        "model": null,
+        "table": null,
+        "key": null,
+        "fk": null
+      }
+    },
+    "deleted_at": {
+      "db": {
+        "type": "DATETIME",
+        "NULL": "True"
+      },
+      "meta": {
+        "form_fillable": "False",
+        "label": null,
+        "rules": null,
+        "is_one": "False",
+        "is_many": "False",
+        "module": null,
+        "model": null,
+        "table": null,
+        "key": null,
+        "fk": null
+      }
+    },
     "transaction_id": {
-            "db": {
-                "type": "INT",
-                "constraint": "11",
-                "unsigned": "True",
-                "auto_increment": "False",
-                "NOT NULL": "True"
-            },
-            "meta": {
-                "form_updateable":"True",
-                "form_fillable": "True",
-                "label": "Transaction",
-                "rules": "required|numeric",
-                "is_one": "True",
-                "is_many": "False",
-                "module": "transaction",
-                "model": "Transaction_model",
-                "table": "transactions",
-                "key": "transaction_id",
-                "fk": "id",
-                "form_elem": "suggests"
-            }
-        },
-    "transaction_cancellation_recommendation_id" : {
-            "db": {
-                "type": "INT",
-                "constraint": "11",
-                "unsigned": "True",
-                "auto_increment": "False",
-                "NOT NULL": "False"
-            },
-            "meta": {
-                "form_fillable": "True",
-                "form_updateable": "True",
-                "label": "Transaction Cancellation Recommendation",
-                "rules": "numeric",
-                "is_one": "True",
-                "is_many": "False",
-                "module": "transaction_cancellation_recommendations",
-                "model": "Transaction_cancellation_recommendations_model",
-                "table": "transaction_cancellation_recommendations",
-                "key": "transaction_cancellation_recommendation_id",
-                "fk": "id",
-                "form_elem": "suggests"
-            }
+      "db": {
+        "type": "INT",
+        "constraint": "11",
+        "unsigned": "True",
+        "auto_increment": "False",
+        "NOT NULL": "True"
+      },
+      "meta": {
+        "form_updateable": "True",
+        "form_fillable": "True",
+        "label": "Transaction",
+        "rules": "required|numeric",
+        "is_one": "True",
+        "is_many": "False",
+        "module": "transaction",
+        "model": "Transaction_model",
+        "table": "transactions",
+        "key": "transaction_id",
+        "fk": "id",
+        "form_elem": "suggests"
+      }
     },
-    "cancellation_status" : {
-            "db": {
-                "type": "INT",
-                "constraint": "1",
-                "unsigned": "True"
-            },
-            "meta": {
-                "form_fillable": "True",
-                "form_updateable": "True",
-                "label": "Cancellation Status",
-                "rules": null,
-                "is_one": "False",
-                "is_many": "False",
-                "module": null,
-                "model": null,
-                "table": null,
-                "key": null,
-                "fk": null,
-                "form_elem": "static_dropdown",
-                "static_dropdown":"cancellation_queue_status"
-            }
+    "transaction_cancellation_recommendation_id": {
+      "db": {
+        "type": "INT",
+        "constraint": "11",
+        "unsigned": "True",
+        "auto_increment": "False",
+        "NOT NULL": "False"
+      },
+      "meta": {
+        "form_fillable": "True",
+        "form_updateable": "True",
+        "label": "Transaction Cancellation Recommendation",
+        "rules": "numeric",
+        "is_one": "True",
+        "is_many": "False",
+        "module": "transaction_cancellation_recommendations",
+        "model": "Transaction_cancellation_recommendations_model",
+        "table": "transaction_cancellation_recommendations",
+        "key": "transaction_cancellation_recommendation_id",
+        "fk": "id",
+        "form_elem": "suggests"
+      }
     },
-    "has_refunds" : {
-            "db": {
-                "type": "BOOL",
-                "constraint": "1",
-                "default": "False"
-            },
-            "meta": {
-                "form_fillable": "True",
-                "form_updateable": "True",
-                "label": "Has Refunds?",
-                "rules": null,
-                "is_one": "False",
-                "is_many": "False",
-                "module": null,
-                "model": null,
-                "table": null,
-                "key": null,
-                "fk": null,
-                "form_elem": "select",
-                "static_dropdown":"cancellation_queue_status"
-            }
+    "cancellation_status": {
+      "db": {
+        "type": "INT",
+        "constraint": "1",
+        "unsigned": "True"
+      },
+      "meta": {
+        "form_fillable": "True",
+        "form_updateable": "True",
+        "label": "Cancellation Status",
+        "rules": null,
+        "is_one": "False",
+        "is_many": "False",
+        "module": null,
+        "model": null,
+        "table": null,
+        "key": null,
+        "fk": null,
+        "form_elem": "static_dropdown",
+        "static_dropdown": "cancellation_queue_status"
+      }
     },
-    "remarks" : {
-            "db": {
-                "type": "VARCHAR",
-                "constraint": "512"
-            },
-            "meta": {
-                "form_fillable": "True",
-                "form_updateable": "True",
-                "label": "Remarks",
-                "rules": null,
-                "is_one": "False",
-                "is_many": "False",
-                "module": null,
-                "model": null,
-                "table": null,
-                "key": null,
-                "fk": null,
-                "form_elem": "textarea"
-            }
+    "has_refunds": {
+      "db": {
+        "type": "BOOL",
+        "constraint": "1",
+        "default": "False"
+      },
+      "meta": {
+        "form_fillable": "True",
+        "form_updateable": "True",
+        "label": "Has Refunds?",
+        "rules": null,
+        "is_one": "False",
+        "is_many": "False",
+        "module": null,
+        "model": null,
+        "table": null,
+        "key": null,
+        "fk": null,
+        "form_elem": "select",
+        "static_dropdown": "cancellation_queue_status"
+      }
+    },
+    "remarks": {
+      "db": {
+        "type": "VARCHAR",
+        "constraint": "512"
+      },
+      "meta": {
+        "form_fillable": "True",
+        "form_updateable": "True",
+        "label": "Remarks",
+        "rules": null,
+        "is_one": "False",
+        "is_many": "False",
+        "module": null,
+        "model": null,
+        "table": null,
+        "key": null,
+        "fk": null,
+        "form_elem": "textarea"
+      }
     }
   }
 }

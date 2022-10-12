@@ -6,6 +6,7 @@ class {{cookiecutter.module_class}}_model extends MY_Model
     public $table = '{{cookiecutter.model_db}}'; // you MUST mention the table name
     public $primary_key = 'id'; // you MUST mention the primary key
     public $fillable = [
+        'id',
         'created_by',
         'created_at',
         'updated_by',

@@ -1,26 +1,58 @@
 # CodeIgniter Cookiecutters
-Fast scaffolding for codeignite projects
+Fast scaffolding for codeigniter projects
 
-## Installation
-##### Requirements
-- vagrantbox: Vagrant + Virtual Box dev environment
-- PIP
+## base_module
 
-##### Setup
-1. Install pip and virtualenv
-2. Create virtualenv outside or within your project directory using `virtualenv venv` 
-3. Activate virtualenv `. .\venv\Scripts\activate.ps1`
-4.	Clone or copy the repository inside your project directory
-5. pip install -r requirements.txt
+`cookiecutter base_module`
 
-##### HowTo
-- Activate virtualenv if not yet activated
-- Open codeigniter-cookicutters directory in Windows PowerShell or cmder
-- Run the `cookiecutter app_module`
+### Fields setup
+Using Suggests
 
-##### References
-- [Pip and virtualenv on windows](https://programwithus.com/learn-to-code/Pip-and-virtualenv-on-Windows/)
-- Installing [pip on windows](https://www.liquidweb.com/kb/install-pip-windows/)
+    "field": {
+            "db": {
+                "type": "INT",
+                "constraint": "11",
+                "unsigned": "True",
+                "auto_increment": "False",
+                "NOT NULL": "True"
+            },
+            "meta": {
+                "form_updateable":"True",
+                "form_fillable": "True",
+                "label": "Transaction",
+                "rules": "required|numeric",
+                "is_one": "True",
+                "is_many": "False",
+                "module": "transaction",
+                "model": "Transaction_model",
+                "table": "transactions",
+                "key": "transaction_id",
+                "fk": "id",
+                "form_elem": "suggests"
+            }
+        }
 
-#### Notes
-**See __Wiki__ on how to setup module model** [Click here](https://gitlab.com/pdp-projects/codeigniter-cookiecutters/-/wikis/Model-fields-setup)
+Using Dropdown.php
+
+    "field" : {
+            "db": {
+                "type": "INT",
+                "constraint": "1",
+                "unsigned": "True"
+            },
+            "meta": {
+                "form_fillable": "True",
+                "form_updateable": "True",
+                "label": "Cancellation Status",
+                "rules": null,
+                "is_one": "False",
+                "is_many": "False",
+                "module": null,
+                "model": null,
+                "table": null,
+                "key": null,
+                "fk": null,
+                "form_elem": "static_dropdown",
+                "static_dropdown":"cancellation_queue_status"
+            }
+    },
