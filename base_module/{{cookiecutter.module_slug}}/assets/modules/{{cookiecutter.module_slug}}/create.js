@@ -1,3 +1,8 @@
+var handler = window.handler;
+var post_redirect = window.post_redirect;
+var post_redirect_params = window.post_redirect_params;
+var post_redirect_querystring = window.post_redirect_querystring;
+
 $(function() {
     const formEl = $('#form');
     formEl.on('submit', function(e) {
@@ -18,7 +23,11 @@ $(function() {
                         text: response.message,
                         type: 'success'
                     }).then(function () {
-                        window.location.reload();
+                        if(post_redirect){
+                            window.location.assign(post_redirect + response[post_redirect_params] + post_redirect_querystring);
+                        }else{
+                            window.location.reload();
+                        }
                     });
                 } else {
                     swal.fire({
@@ -31,7 +40,7 @@ $(function() {
             error: function(response) {
                 Swal.fire({
                     title: 'Failed!',
-                    text: 'Error has been occurred, Please try again later.',
+                    text: 'Error has occurred, Please try again later.',
                     icon: 'error'
                 });
             },

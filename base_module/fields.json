@@ -1,0 +1,280 @@
+{
+  "fields": {
+    "id": {
+      "db": {
+        "type": "INT",
+        "constraint": "11",
+        "unsigned": "True",
+        "auto_increment": "True",
+        "NOT NULL": "True"
+      },
+      "meta": {
+        "form_fillable": "False",
+        "label": null,
+        "rules": null,
+        "is_one": "False",
+        "is_many": "False",
+        "module": null,
+        "model": null,
+        "table": null,
+        "key": null,
+        "fk": null
+      }
+    },
+    "created_by": {
+      "db": {
+        "type": "INT",
+        "NOT NULL": "True",
+        "unsigned": "True"
+      },
+      "meta": {
+        "form_fillable": "False",
+        "label": null,
+        "rules": null,
+        "is_one": "False",
+        "is_many": "False",
+        "module": null,
+        "model": null,
+        "table": null,
+        "key": null,
+        "fk": null
+      }
+    },
+    "created_at": {
+      "db": {
+        "type": "DATETIME",
+        "NOT NULL": "True"
+      },
+      "meta": {
+        "form_fillable": "False",
+        "label": null,
+        "rules": null,
+        "is_one": "False",
+        "is_many": "False",
+        "module": null,
+        "model": null,
+        "table": null,
+        "key": null,
+        "fk": null
+      }
+    },
+    "updated_by": {
+      "db": {
+        "type": "INT",
+        "NULL": "True",
+        "unsigned": "True"
+      },
+      "meta": {
+        "form_fillable": "False",
+        "label": null,
+        "rules": null,
+        "is_one": "False",
+        "is_many": "False",
+        "module": null,
+        "model": null,
+        "table": null,
+        "key": null,
+        "fk": null
+      }
+    },
+    "updated_at": {
+      "db": {
+        "type": "DATETIME",
+        "NULL": "True"
+      },
+      "meta": {
+        "form_fillable": "False",
+        "label": null,
+        "rules": null,
+        "is_one": "False",
+        "is_many": "False",
+        "module": null,
+        "model": null,
+        "table": null,
+        "key": null,
+        "fk": null
+      }
+    },
+    "deleted_by": {
+      "db": {
+        "type": "INT",
+        "NULL": "True",
+        "unsigned": "True"
+      },
+      "meta": {
+        "form_fillable": "False",
+        "label": null,
+        "rules": null,
+        "is_one": "False",
+        "is_many": "False",
+        "module": null,
+        "model": null,
+        "table": null,
+        "key": null,
+        "fk": null
+      }
+    },
+    "deleted_at": {
+      "db": {
+        "type": "DATETIME",
+        "NULL": "True"
+      },
+      "meta": {
+        "form_fillable": "False",
+        "label": null,
+        "rules": null,
+        "is_one": "False",
+        "is_many": "False",
+        "module": null,
+        "model": null,
+        "table": null,
+        "key": null,
+        "fk": null
+      }
+    },
+    "reference": {
+      "db": {
+        "type": "VARCHAR",
+        "constraint": "255",
+        "NULL": "True"
+      },
+      "meta": {
+        "form_fillable": "True",
+        "label": "Reference",
+        "rules": "",
+        "is_one": "False",
+        "is_many": "False",
+        "module": null,
+        "model": null,
+        "table": null,
+        "key": null,
+        "fk": null,
+        "form_elem": null
+      }
+    },
+    "payable_type_id": {
+      "db": {
+        "type": "INT",
+        "constraint": "3",
+        "NULL": "False"
+      },
+      "meta": {
+        "form_fillable": "True",
+        "label": "Payable Type",
+        "rules": "",
+        "is_one": "False",
+        "is_many": "False",
+        "module": null,
+        "model": null,
+        "table": "payable_types",
+        "key": "payable_type_id",
+        "fk": null,
+        "form_elem": "suggests",
+        "suggests_repr": "$payable_name"
+      }
+    },
+    "due_date": {
+      "db": {
+        "type": "DATE",
+        "NULL": "False"
+      },
+      "meta": {
+        "form_fillable": "True",
+        "label": "Due Date",
+        "rules": "",
+        "is_one": "False",
+        "is_many": "False",
+        "module": null,
+        "model": null,
+        "table": null,
+        "key": null,
+        "fk": null,
+        "form_elem": "date"
+      }
+    },
+    "transaction_cancellation_queue_id": {
+      "db": {
+        "type": "INT",
+        "constraint": "11",
+        "unsigned": "True",
+        "auto_increment": "False",
+        "NOT NULL": "True"
+      },
+      "meta": {
+        "form_updateable": "True",
+        "form_fillable": "True",
+        "label": "Transaction Cancellation Queue",
+        "rules": "required|numeric",
+        "is_one": "True",
+        "is_many": "False",
+        "module": "transaction_cancellation_queue",
+        "model": "Transaction_Cancellation_Queue_model",
+        "table": "transaction_cancellation_queues",
+        "key": "id",
+        "fk": "transaction_cancellation_queue_id",
+        "form_elem": "suggests"
+      }
+    },
+    "filename": {
+      "db": {
+        "type": "VARCHAR",
+        "constraint": "512"
+      },
+      "meta": {
+        "form_fillable": "True",
+        "form_updateable": "True",
+        "label": "Filename",
+        "rules": null,
+        "is_one": "False",
+        "is_many": "False",
+        "module": null,
+        "model": null,
+        "table": null,
+        "key": null,
+        "fk": null,
+        "form_elem": "file"
+      }
+    },
+    "remarks": {
+      "db": {
+        "type": "VARCHAR",
+        "constraint": "512"
+      },
+      "meta": {
+        "form_fillable": "True",
+        "form_updateable": "True",
+        "label": "Remarks",
+        "rules": null,
+        "is_one": "False",
+        "is_many": "False",
+        "module": null,
+        "model": null,
+        "table": null,
+        "key": null,
+        "fk": null,
+        "form_elem": "input"
+      }
+    },
+    "queue_stage": {
+      "db": {
+        "type": "INT",
+        "constraint": "1",
+        "unsigned": "True",
+        "NOT NULL": "True",
+        "default": 1
+      },
+      "meta": {
+        "form_fillable": "True",
+        "label": null,
+        "rules": null,
+        "is_one": "False",
+        "is_many": "False",
+        "module": null,
+        "model": null,
+        "table": null,
+        "key": null,
+        "fk": null
+      }
+    }
+  }
+}

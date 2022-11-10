@@ -1,3 +1,8 @@
+var handler = window.handler;
+var post_redirect = window.post_redirect;
+var post_redirect_params = window.post_redirect_params;
+var post_redirect_querystring = window.post_redirect_querystring;
+
 var object_id = window.object_request_id;
 $(function() {
     const formEl = $('#form');
@@ -19,7 +24,11 @@ $(function() {
                         text: response.message,
                         type: 'success'
                     }).then(function () {
-                        window.location.reload();
+                        if(post_redirect){
+                            window.location.assign(post_redirect + response[post_redirect_params] + post_redirect_querystring);
+                        }else{
+                            window.location.reload();
+                        }
                     });
                 } else {
                     swal.fire({

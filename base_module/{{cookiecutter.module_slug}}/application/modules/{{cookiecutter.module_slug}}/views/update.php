@@ -1,3 +1,26 @@
+<script type="text/javascript">
+    window.object_request_id = "<?php echo $id;?>";
+    window.object_request_fillables = {};
+    window.current_user_id = "<?=current_user_id();?>";
+    window.object_status = "<?php echo $form_data['status'];?>";
+    <?php foreach($fillables as $fillable):?>
+        window.object_request_fillables["<?php echo $fillable;?>"] = null;
+    <?php endforeach;?>
+    window.is_editable = <?=$is_editable;?>;
+    window.handler = "<?php echo $handler;?>";
+    window.post_redirect = null;
+    window.post_redirect_params = null;
+    window.action = "<?php echo $action;?>";
+    <?php if(isset($post_redirect)):?>
+        window.post_redirect = "<?php echo $post_redirect;?>";
+        <?php if(isset($post_redirect_params)):?>
+            window.post_redirect_params = "<?php echo $post_redirect_params;?>";
+        <?php endif;?>
+        <?php if(isset($post_redirect_querystring)):?>
+            window.post_redirect_querystring = "<?php echo $post_redirect_querystring;?>";
+        <?php endif;?>
+    <?php endif;?>
+</script>
 <!--begin::Form-->
 <form role="form" method="POST" class="kt-form kt-form--label-right" id="form">
     <input type="hidden" id="id" name="id" value="<?php echo $info['id'] ?>" readonly>
@@ -30,7 +53,7 @@
                 <div class="kt-portlet__body">
                     <div class="row">
 
-                        // content
+                    <?php $this->load->view('components/update/main'); ?>
 
                     </div>
                 </div>

@@ -7,6 +7,19 @@
     window.object_request_fillables["<?php echo $fillable;?>"] = null;
     <?php endforeach;?>
     window.is_editable = <?=$is_editable;?>;
+    window.handler = "<?= $handler;?>";
+    window.post_redirect = null;
+    window.post_redirect_params = null;
+    window.post_redirect_querystring = null;
+    <?php if(isset($post_redirect)):?>
+        window.post_redirect = "<?php echo $post_redirect;?>";
+        <?php if(isset($post_redirect_params)):?>
+            window.post_redirect_params = "<?php echo $post_redirect_params;?>";
+        <?php endif;?>
+        <?php if(isset($post_redirect_querystring)):?>
+            window.post_redirect_querystring = "<?php echo $post_redirect_querystring;?>";
+        <?php endif;?>
+    <?php endif;?>
 </script>
 <!--begin::Form-->
 <form role="form" method="POST" class="kt-form kt-form--label-right" id="form">

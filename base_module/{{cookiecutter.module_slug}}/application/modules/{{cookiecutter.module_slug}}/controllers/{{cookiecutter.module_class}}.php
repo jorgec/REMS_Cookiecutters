@@ -22,7 +22,7 @@ class {{cookiecutter.controller}} extends MY_Controller
       * - $this->extra_update_data - gets appended to $additional on update
       */
 
-    private $__errors = array(
+    private $_form_errors = array(
         'create' => null,
         'update' => null,
     );
@@ -48,6 +48,8 @@ class {{cookiecutter.controller}} extends MY_Controller
 
         $this->_table_fillables = $this->_model->fillable;
         $this->_table_columns = $this->_model->__get_columns();
+
+        $this->module_url = site_url("{{cookiecutter.module_slug}}");
 
     }
 
