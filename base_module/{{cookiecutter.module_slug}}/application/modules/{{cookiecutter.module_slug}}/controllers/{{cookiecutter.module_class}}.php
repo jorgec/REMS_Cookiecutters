@@ -51,6 +51,9 @@ class {{cookiecutter.controller}} extends MY_Controller
 
         $this->module_url = site_url("{{cookiecutter.module_slug}}");
 
+        // override or delete as necessary
+        $this->globally_allowed_permissions = ['is_read', 'is_create'];
+
     }
 
     # region public methods

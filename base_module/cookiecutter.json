@@ -1,6 +1,6 @@
 {
     "module_name": "My Module",
-    "module_class": "{{ cookiecutter.module_name.title().replace(' ', '_') }}",
+    "module_class": "{{ cookiecutter.module_name.replace(' ', '_').lower().capitalize() }}",
     "module_display_plural": "{{ cookiecutter.module_name }}s",
     "module_display_singular": "{{ cookiecutter.module_name }}",
     "module_slug": "{{ cookiecutter.module_name.lower().replace(' ', '_').replace('.', '_').strip() }}",
@@ -22,15 +22,15 @@
             },
             "meta": {
                 "form_fillable": "False",
-                "label": null,
-                "rules": null,
+                "label": "null",
+                "rules": "null",
                 "is_one": "False",
                 "is_many": "False",
-                "module": null,
-                "model": null,
-                "table": null,
-                "key": null,
-                "fk": null
+                "module": "null",
+                "model": "null",
+                "table": "null",
+                "key": "null",
+                "fk": "null"
             }
         },
         "created_by": {
@@ -41,15 +41,15 @@
             },
             "meta": {
                 "form_fillable": "False",
-                "label": null,
-                "rules": null,
+                "label": "null",
+                "rules": "null",
                 "is_one": "False",
                 "is_many": "False",
-                "module": null,
-                "model": null,
-                "table": null,
-                "key": null,
-                "fk": null
+                "module": "null",
+                "model": "null",
+                "table": "null",
+                "key": "null",
+                "fk": "null"
             }
         },
         "created_at": {
@@ -59,15 +59,15 @@
             },
             "meta": {
                 "form_fillable": "False",
-                "label": null,
-                "rules": null,
+                "label": "null",
+                "rules": "null",
                 "is_one": "False",
                 "is_many": "False",
-                "module": null,
-                "model": null,
-                "table": null,
-                "key": null,
-                "fk": null
+                "module": "null",
+                "model": "null",
+                "table": "null",
+                "key": "null",
+                "fk": "null"
             }
         },
         "updated_by": {
@@ -78,15 +78,15 @@
             },
             "meta": {
                 "form_fillable": "False",
-                "label": null,
-                "rules": null,
+                "label": "null",
+                "rules": "null",
                 "is_one": "False",
                 "is_many": "False",
-                "module": null,
-                "model": null,
-                "table": null,
-                "key": null,
-                "fk": null
+                "module": "null",
+                "model": "null",
+                "table": "null",
+                "key": "null",
+                "fk": "null"
             }
         },
         "updated_at": {
@@ -96,15 +96,15 @@
             },
             "meta": {
                 "form_fillable": "False",
-                "label": null,
-                "rules": null,
+                "label": "null",
+                "rules": "null",
                 "is_one": "False",
                 "is_many": "False",
-                "module": null,
-                "model": null,
-                "table": null,
-                "key": null,
-                "fk": null
+                "module": "null",
+                "model": "null",
+                "table": "null",
+                "key": "null",
+                "fk": "null"
             }
         },
         "deleted_by": {
@@ -115,15 +115,15 @@
             },
             "meta": {
                 "form_fillable": "False",
-                "label": null,
-                "rules": null,
+                "label": "null",
+                "rules": "null",
                 "is_one": "False",
                 "is_many": "False",
-                "module": null,
-                "model": null,
-                "table": null,
-                "key": null,
-                "fk": null
+                "module": "null",
+                "model": "null",
+                "table": "null",
+                "key": "null",
+                "fk": "null"
             }
         },
         "deleted_at": {
@@ -133,81 +133,59 @@
             },
             "meta": {
                 "form_fillable": "False",
-                "label": null,
-                "rules": null,
+                "label": "null",
+                "rules": "null",
                 "is_one": "False",
                 "is_many": "False",
-                "module": null,
-                "model": null,
-                "table": null,
-                "key": null,
-                "fk": null
-            }
-        },        
-        "revolving_fund_id": {
-            "db": {
-                "type": "INT",
-                "NULL": "True",
-                "unsigned": "True",
-                "constraint": "11"
-            },
-            "meta": {
-                "form_fillable": "True",
-                "label": "Revolving Fund",
-                "rules": "",
-                "is_one": "True",
-                "is_many": "False",
-                "module": "revolving_fund",
-                "model": "Revolving_Fund_Model",
-                "table": "revolving_funds",
-                "key": "id",
-                "fk": "revolving_fund_id",
-                "form_elem": "suggests",
-                "suggests_repr": "revolving_fund_name"
+                "module": "null",
+                "model": "null",
+                "table": "null",
+                "key": "null",
+                "fk": "null"
             }
         },
-        "payment_request_id": {
+        "consolidated_payment_request_id": {
             "db": {
                 "type": "INT",
-                "NULL": "True",
+                "NULL": "False",
                 "unsigned": "True",
                 "constraint": "11"
             },
             "meta": {
                 "form_fillable": "True",
-                "label": "Payment Request",
+                "label": "Consolidated Payment Request ID",
                 "rules": "",
                 "is_one": "True",
                 "is_many": "False",
-                "module": "payment_request",
-                "model": "Payment_Request_model",
-                "table": "payment_requests",
-                "key": "id",
-                "fk": "payment_request_id",
+                "module": "consolidated_payment_request",
+                "model": "Consolidated_payment_request_model",
+                "table": "consolidated_payment_requests",
+                "fk": "id",
+                "key": "consolidated_payment_request_id",
                 "form_elem": "suggests",
-                "suggests_repr": "payment_request_reference"
+                "suggests_repr": "$consolidated_payment_request_id"
             }
-        },        
-        "remarks": {
+        },
+        "source_id": {
             "db": {
-                "type": "VARCHAR",
-                "constraint": "512",
-                "NULL": "True"
+                "type": "INT",
+                "NULL": "False",
+                "unsigned": "True",
+                "constraint": "11"
             },
             "meta": {
                 "form_fillable": "True",
-                "form_updateable": "True",
-                "label": "Remarks",
-                "rules": null,
-                "is_one": "False",
+                "label": "Source ID",
+                "rules": "",
+                "is_one": "",
                 "is_many": "False",
-                "module": null,
-                "model": null,
-                "table": null,
-                "key": null,
-                "fk": null,
-                "form_elem": "textarea"
+                "module": "",
+                "model": "",
+                "table": "",
+                "fk": "",
+                "key": "",
+                "form_elem": "numeric"
             }
         }
-    }
+    }        
 }
