@@ -1,6 +1,13 @@
 # CodeIgniter Cookiecutters
 Fast scaffolding for codeigniter projects
 
+## Installation
+1. Create a Python environment (req. 3.8+)
+-- https://docs.python.org/3/library/venv.html
+2. Install dependencies
+`pip install -r requirements.txt`
+3. Profit
+
 ## base_module
 
 `cookiecutter base_module`
