@@ -144,7 +144,26 @@
                 "fk": "null"
             }
         },
-        "consolidated_payment_request_id": {
+        "movement_date": {
+            "db": {
+                "type": "DATE",
+                "NULL": "False"
+            },
+            "meta": {
+                "form_fillable": "True",
+                "label": "Movement Date",
+                "rules": "",
+                "is_one": "False",
+                "is_many": "False",
+                "module": null,
+                "model": null,
+                "table": null,
+                "key": null,
+                "fk": null,
+                "form_elem": "date"
+            }
+        },
+        "item_id": {
             "db": {
                 "type": "INT",
                 "NULL": "False",
@@ -153,17 +172,39 @@
             },
             "meta": {
                 "form_fillable": "True",
-                "label": "Consolidated Payment Request ID",
+                "label": "Item ID",
                 "rules": "",
                 "is_one": "True",
                 "is_many": "False",
-                "module": "consolidated_payment_request",
-                "model": "Consolidated_payment_request_model",
-                "table": "consolidated_payment_requests",
+                "module": "item",
+                "model": "Item_model",
+                "table": "items",
                 "fk": "id",
-                "key": "consolidated_payment_request_id",
+                "key": "item_id",
                 "form_elem": "suggests",
-                "suggests_repr": "$consolidated_payment_request_id"
+                "suggests_repr": "$item_id"
+            }
+        },
+        "source_type": {
+            "db": {
+                "type": "INT",
+                "NULL": "False",
+                "unsigned": "True",
+                "constraint": "11"
+            },
+            "meta": {
+                "form_fillable": "True",
+                "label": "Source Type",
+                "rules": "",
+                "is_one": "",
+                "is_many": "False",
+                "module": "",
+                "model": "",
+                "table": "",
+                "fk": "",
+                "key": "",
+                "form_elem": "static_dropdown",
+                "static_dropdown": "material_movement_target_types"
             }
         },
         "source_id": {
@@ -186,6 +227,92 @@
                 "key": "",
                 "form_elem": "numeric"
             }
+        },
+        "destination_type": {
+            "db": {
+                "type": "INT",
+                "NULL": "False",
+                "unsigned": "True",
+                "constraint": "11"
+            },
+            "meta": {
+                "form_fillable": "True",
+                "label": "Destination Type",
+                "rules": "",
+                "is_one": "",
+                "is_many": "False",
+                "module": "",
+                "model": "",
+                "table": "",
+                "fk": "",
+                "key": "",
+                "form_elem": "static_dropdown",
+                "static_dropdown": "material_movement_target_types"
+            }
+        },
+        "destination_id": {
+            "db": {
+                "type": "INT",
+                "NULL": "False",
+                "unsigned": "True",
+                "constraint": "11"
+            },
+            "meta": {
+                "form_fillable": "True",
+                "label": "Destination ID",
+                "rules": "",
+                "is_one": "",
+                "is_many": "False",
+                "module": "",
+                "model": "",
+                "table": "",
+                "fk": "",
+                "key": "",
+                "form_elem": "numeric"
+            }
+        },
+        "quantity": {
+            "db": {
+                "type": "FLOAT",
+                "NULL": "False",
+                "unsigned": "True"
+            },
+            "meta": {
+                "form_fillable": "True",
+                "label": "Quantity",
+                "rules": "",
+                "is_one": "",
+                "is_many": "False",
+                "module": "",
+                "model": "",
+                "table": "",
+                "fk": "",
+                "key": "",
+                "form_elem": "numeric"
+            }
+        },
+        "unit_of_measurement_id": {
+            "db": {
+                "type": "INT",
+                "constraint": "11",
+                "unsigned": "True",
+                "auto_increment": "False",
+                "NOT NULL": "True"
+            },
+            "meta": {
+                "form_updateable": "True",
+                "form_fillable": "True",
+                "label": "Unit of Measurement",
+                "rules": "",
+                "is_one": "True",
+                "is_many": "False",
+                "module": "inventory_settings_unit_of_measurement",
+                "model": "Inventory_settings_unit_of_measurement_model",
+                "table": "inventory_settings_unit_of_measurements",
+                "key": "unit_of_measurement_id",
+                "fk": "id",
+                "form_elem": "suggests"
+            }
         }
-    }        
+    }
 }
